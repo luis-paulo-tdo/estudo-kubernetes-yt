@@ -23,6 +23,10 @@
 - O Control Plane é o cérebro do Cluster, responsável por gerenciar os Workers que operam.
 - Dentro dos Workers é onde ficarão as Aplicações que rodam e operam como parte do Sistema.
 - Um Cluster Multi-Node é uma configuração que tem um Control Plane e mais de um Worker.
+- O Controller Manager verifica e garante se os Nós estão funcionando corretamente.
+- O Kube Scheduler verifica quais nós estão funcionando, quem e como precisam de alocação.
+- O Kube ApiServer de um Cluster é o ponto de contato e intermediador dentro do Cluster.
+- O Etcd de um Cluster é uma persistência chave-valor que mantém o seu estado registrado.
 
 ## 3. Criando um Pod
 - Dentro de um Cluster, é possível utilizar diferentes recursos de aplicação que ele oferece.
@@ -30,3 +34,6 @@
 - Eles compartilham o mesmo IP e a mesma porta, como se estivessem dentro da mesma máquina.
 - Através de um arquivo manifesto, descrevemos exatamente como o Cluster deve funcionar.
 - No Manifesto definimos a versão da API, tipo do recurso, metadados e especificações.
+
+## 4. Criando um Deployment
+- Existem situações onde um Pod pode cair por N motivos, deixando então o sistema indisponível.
