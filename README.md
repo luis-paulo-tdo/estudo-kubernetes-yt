@@ -23,4 +23,10 @@
 - O Control Plane é o cérebro do Cluster, responsável por gerenciar os Workers que operam.
 - Dentro dos Workers é onde ficarão as Aplicações que rodam e operam como parte do Sistema.
 - Um Cluster Multi-Node é uma configuração que tem um Control Plane e mais de um Worker.
- 
+
+## 3. Criando um Pod
+- Dentro de um Cluster, é possível utilizar diferentes recursos de aplicação que ele oferece.
+- O Pod é a menor unidade criada e gerenciada em um Cluster, sendo um ou mais Contêineres.
+- Eles compartilham o mesmo IP e a mesma porta, como se estivessem dentro da mesma máquina.
+- Através de um arquivo manifesto, descrevemos exatamente como o Cluster deve funcionar.
+- No Manifesto definimos a versão da API, tipo do recurso, metadados e especificações.
