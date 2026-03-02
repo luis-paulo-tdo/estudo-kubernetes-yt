@@ -34,6 +34,17 @@
 - Eles compartilham o mesmo IP e a mesma porta, como se estivessem dentro da mesma máquina.
 - Através de um arquivo manifesto, descrevemos exatamente como o Cluster deve funcionar.
 - No Manifesto definimos a versão da API, tipo do recurso, metadados e especificações.
+- Dentro dos metadados de um Manifesto, definimos o nome e labels de filtragem do recurso.
+- Dentro das especificações, informamos os containeres que devem ser instalados no Cluster.
 
 ## 4. Criando um Deployment
 - Existem situações onde um Pod pode cair por N motivos, deixando então o sistema indisponível.
+- Através do recurso ReplicaSet, dizemos o Kube Scheduler que vamos criar uma replica dele.
+- Kube Scheduler então repassa a mensagem para o Controller Manager para criar o Nó novamente.
+- Esta configuração de réplicas determina quantas instâncias devemos ter rodando no Cluster.
+- Podemos configurar estas réplicas para um ou mais contêineres através do recurso Deployment.
+- Ao criar o Manifesto do Deployment, conseguimos configurar o número de réplicas para cada um.
+- Cada quantidade de replicas configurada tem um matchLabel que será atribuído aos contêineres.
+- Cada contêiner deve ter um template com a matchLabel correspondente à quantidade de réplicas.
+- A partir destas configurações, um novo Deployment será criado sempre que o Pod for deletado.
+- Sendo assim, conseguimos garantir uma alta disponibilidade dentro do recurso de Deployment.
