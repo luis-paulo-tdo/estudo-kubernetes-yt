@@ -60,3 +60,19 @@ PS: Bash para monitorar Pods
 - Existem propriedades com tipo `object`, que recebem um conjunto de outras propriedades.
 - Um `kubectl explain <objeto>` descreve o que é o objeto e as propriedades que ele possui.
 - Desta forma, conseguimos navegar dentro de toda a hierarquia de propriedades de um Manifesto.
+
+## 6. Introdução aos Services
+- Para prover disponibilidade dos Pods, precisamos prover informações além dos Deployments.
+- Alguns Services, como o auto-discovery, permitem a descoberta automática da aplicação.
+- A auto-descoberta faz o Kube Scheduler encontrar a aplicação e registrá-la em um DNS.
+- Este DNS interno permitirá a comunicação com os recursos do Pod mesmo que ele seja caia.
+- Esta ação é necessária porque o endereço IP do Pod pode acabar mudando após ele cair.
+- Com um Service, fazemos um encaminhamento das aplicações externas para o IP atualizado.
+- Como o `kubectl expose deployment`, criamos um Service e informamos as portas de escuta.
+- Assim, as requisições passam a apontar para o nome do Deployment em vez do endereço IP.
+- Um Service pode apontar para várias réplicas no Cluster, e que podem mudar o seus nomes.
+- Além disso, há Deployments diferentes de uma mesma aplicação em Namespaces diferentes.
+- Neste caso, cada Deployment deve ter o seu próprio Service, correspondente ao Namespace.
+- Com isso, uma rede de aplicações conseguirá outras através do DNS junto com o Namespace.
+- Toda vez que um Service for criado para um Deployment, um DNS será criado para ele.
+ 
