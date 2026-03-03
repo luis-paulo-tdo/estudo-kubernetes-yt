@@ -48,3 +48,15 @@
 - Cada contêiner deve ter um template com a matchLabel correspondente à quantidade de réplicas.
 - A partir destas configurações, um novo Deployment será criado sempre que o Pod for deletado.
 - Sendo assim, conseguimos garantir uma alta disponibilidade dentro do recurso de Deployment.
+
+PS: Bash para monitorar Pods
+	for /l %g in () do @(kubectl get pods -o wide & timeout /t 1 > nul & cls)
+	
+## 5. Explicando a Criação de Recursos
+- Pelo comando `kubectl explain`, entendemos melhor o que os recursos esperam em seus Manifestos.
+- Este comando listará todas as propriedades que compõem o Manifesto e o que é cada uma delas.
+- Cada propriedade recebe uma descrição detalhada sobre ela e quais tipos de dados aceita.
+- Algumas propriedades como `status` são atribuídas em tempo de execução não sendo obrigatórias.
+- Existem propriedades com tipo `object`, que recebem um conjunto de outras propriedades.
+- Um `kubectl explain <objeto>` descreve o que é o objeto e as propriedades que ele possui.
+- Desta forma, conseguimos navegar dentro de toda a hierarquia de propriedades de um Manifesto.
